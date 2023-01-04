@@ -3,9 +3,7 @@ name: CI
 on:
   push:
     branches:
-    - 'ci/**'
-    - 'master'
-    - 'develop'
+      - '**'
   pull_request:
     branches:
       - '**'
@@ -16,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install modules
-      run: npm i
+      run: npm ci
     - name: Run ESLint
       run: npm run lint
 
@@ -25,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install modules
-      run: npm i
+      run: npm ci
     - name: Check Types
       run: npm run check-types
 
@@ -34,7 +32,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install modules
-      run: npm i
+      run: npm ci
     - name: Build Server
       run: npm run build
 
@@ -43,6 +41,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Install modules
-      run: npm i
+      run: npm ci
     - name: Run Tests
       run: npm test
